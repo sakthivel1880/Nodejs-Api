@@ -1,0 +1,41 @@
+const express = require('express');
+var router = express.Router();
+const mongoose = require('mongoose');
+
+const userlogin = require('./Userlogin');
+const contact = require('./contact');
+const aboutus = require('./aboutus');
+const product = require('./product');
+const advertisment = require('./advertisment');
+const profile = require('./profile');
+
+router.post('/register/', userlogin.insertregister);
+router.post('/login/', userlogin.loginselect);
+router.post('/message/', contact.message);
+router.get('/selectcontact/', contact.selectcontact);
+router.get('/selectsocail/', contact.selectsocail);
+router.post('/subscribe/', contact.subscribe);
+router.get('/aboutus/', aboutus.selectabout);
+router.get('/autocomplete/', product.autocomplete);
+router.get('/categories/', product.categories);
+router.get('/subcategories/', product.subcategories);
+router.get('/productdetails/', product.productdetails);
+router.post('/productdetailswithid/', product.productdetailswithid);
+router.get('/newarrivals/', product.newarrivals);
+router.post('/productdetailswithcategory/', product.productdetailswithcategory);
+router.post('/addtocart/', product.addtocart);
+router.post('/addtowhishlist/', product.addtowhishlist);
+router.post('/removewhishlist/', product.removewhishlist);
+router.post('/whishlist/', product.whishlist);
+router.post('/cartlist/', product.cartlist);
+router.post('/quantitycartlist/', product.quantitycartlist);
+router.post('/removecartlist/', product.removecartlist);
+router.post('/singleproduct/', product.singleproduct);
+router.get('/banner/', advertisment.selectbanner);
+router.get('/common/', advertisment.selectcommon);
+router.get('/special/', advertisment.selectspecial);
+router.post('/getprofile/', profile.getprofile);
+router.post('/addprofile/', profile.addprofile);
+router.post('/updateprofile/', profile.updateprofile);
+
+module.exports = router;
